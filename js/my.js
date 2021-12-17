@@ -920,7 +920,7 @@ function example03() {
 
                                 function internet_time(dt) 
                                 { 
-                                return Math.floor((((dt.getUTCHours() + 1 ) % 24) + dt.getUTCMinutes() / 60 + dt.getUTCSeconds() / 3600) * 1000 / 24);
+                                return Math.floor((((dt.getUTCHours()+1 ) % 24) + dt.getUTCMinutes() / 60 + dt.getUTCSeconds() / 3600) * 1000 / 24);
                                 
                                 }
 
@@ -932,4 +932,171 @@ function example03() {
                                     document.getElementById("result32").innerHTML = `${internet_time(dt)}`;
                                       
                                 }
+                                // 33. Write a JavaScript function to get 12-hour format of an hour with leading zeros.   
+                                // Test Data :
+                                // dt = new Date(1989, 10, 1);
+                                // console.log(hours_with_zeroes(dt));
+                                // "12"
+                                function hours_with_zeroes(input)
+                                {
+                                     
+                                      return ((input.getHours()%12||12) < 10 ? '0' : '')+ (input.getHours()%12||12)
+
+
+                                }
+
+                                function example33() 
+                                {
+                                    dt = new Date( 1989, 10, 1); 
+                                     
+
+                                    document.getElementById("resulthead33").innerHTML = `Result :`;
+                                    document.getElementById("result33").innerHTML = `${hours_with_zeroes(dt)}`;
+                                      
+                                }
+
+                                // 34. Write a JavaScript function to get 24-hour format of an hour without leading zeros.   
+                                //     Test Data :
+                                //     dt = new Date(1989, 10, 1);
+                                //     console.log(hours_without_zeroes(dt));
+                                //     0
+
+                                function hours_without_zeroes(input)
+                                {
+                                     
+                                      //return ((input.getHours()%12||12) < 10 ? '0' : '')+ (input.getHours()%12||12)
+                                        return input.getHours()%24;
+
+                                }
+
+                                function example34() 
+                                {
+                                    dt = new Date( 1989, 10, 1); 
+                                     
+
+                                    document.getElementById("resulthead34").innerHTML = `Result :`;
+                                    document.getElementById("result34").innerHTML = `${hours_without_zeroes(dt)}`;
+                                      
+                                }
+
+                                // 35. Write a JavaScript function to get minutes with leading zeros (00 to 59).   
+                                // Test Data :
+                                // dt = new Date(1989, 10, 1);
+                                // console.log(minutes_with_leading_zeros(dt));
+                                // "00"
+                                function minutes_with_leading_zeros(input)
+                                {
+                                     
+                                      
+                                        return ((input.getMinutes() < 10 ?  '0' : '' )+input.getMinutes());
+
+                                }
+
+                                function example35() 
+                                {
+                                    dt = new Date(1989, 10, 1); 
+                                     
+
+                                    document.getElementById("resulthead35").innerHTML = `Result :`;
+                                    document.getElementById("result35").innerHTML = `${minutes_with_leading_zeros(dt)}`;
+                                      
+                                }
+
+                                // 36. Write a JavaScript function to get seconds with leading zeros (00 through 59).   
+                                //     Test Data :
+                                //     dt = new Date(1989, 10, 1);
+                                //     console.log(seconds_with_leading_zeros(dt));
+                                //     "00"
+
+                                function seconds_with_leading_zeros(input)
+                                {
+                                     
+                                      
+                                        return ((input.getSeconds() < 10 ?  '0' : '' )+input.getSeconds());
+
+                                }
+
+                                function example36() 
+                                {
+                                    dt = new Date(1989, 10, 1); 
+                                     
+
+                                    document.getElementById("resulthead36").innerHTML = `Result :`;
+                                    document.getElementById("result36").innerHTML = `${seconds_with_leading_zeros(dt)}`;
+                                      
+                                }
+
+                                // 37. Write a JavaScript function to get Timezone.   
+                                // Test Data :
+                                // dt = new Date();
+                                // console.log(seconds_with_leading_zeros(dt));
+                                // "India Standard Time"
+
+                                function getTimeZone(input)
+                                {
+                                     
+                                      
+                                        return /\((.*)\)/.exec(input.toString())[0];
+
+                                }
+
+                                function example37() 
+                                {
+                                    dt = new Date();
+                                    
+                                     
+
+                                    document.getElementById("resulthead37").innerHTML = `Result :`;
+                                    document.getElementById("result37").innerHTML = `${getTimeZone(dt)}`;
+                                      
+                                }
+
+                                // 39. Write a JavaScript function to get difference to Greenwich time (GMT) in hours.   
+                                // Test Data :
+                                // dt = new Date();
+                                // console.log(diff_to_GMT(dt));
+                                // "+05.500"
+
+
+                                function diff_to_GMT(dt) 
+                                { 
+                                   return (-1*dt.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(dt.getTimezoneOffset() / 60) < 10 ? '0' : '') + 
+                                   (Math.abs(dt.getTimezoneOffset() / 60)) + '00';
+                                }
+                                function example39() 
+                                {
+                                    dt = new Date();
+                                    
+                                     
+
+                                    document.getElementById("resulthead39").innerHTML = `Result :`;
+                                    document.getElementById("result39").innerHTML = `${diff_to_GMT(dt)}`;
+                                      
+                                }
+
+                                // 40. Write a JavaScript function to get timezone offset in seconds.   
+                                // Note : The offset for timezones west of UTC is always negative, and for those east of UTC is always positive.
+                                // Test Data :
+                                // dt = new Date();
+                                // console.log(timezone_offset_in_seconds(dt));
+                                // 19800
                                 
+
+                                function timezone_offset_in_seconds(input)
+                                {
+                                     
+                                      
+                                        return  Math.abs(input.getTimezoneOffset()*60);
+
+                                }
+
+                                function example40() 
+                                {
+                                    dt = new Date();
+                                    
+                                     
+
+                                    document.getElementById("resulthead40").innerHTML = `Result :`;
+                                    document.getElementById("result40").innerHTML = `${timezone_offset_in_seconds(dt)}`;
+                                      
+                                }
